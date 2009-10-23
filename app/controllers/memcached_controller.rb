@@ -1,16 +1,15 @@
-class DashboardController < ApplicationController
+class MemcachedController < ApplicationController
 	def index
-		feeds
+		redirect_to :action => :slow
 	end
 
-	def feeds
+	def slow
 		@feeds = RSSFeed.all
 		render :feeds
 	end
 
-	def cached_partial
+	def fast
 		@feeds = RSSFeed.all
 		render :cached_partial
 	end
-
 end
