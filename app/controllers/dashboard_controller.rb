@@ -7,4 +7,10 @@ class DashboardController < ApplicationController
 		@feeds = RSSFeed.all
 		render :feeds
 	end
+
+	def cached_partial
+		@feeds = RSSFeed.all
+		render :cached_partial
+	end
+
 end
