@@ -1,1 +1,3 @@
-<%= render :partial => 'feeds' %>
+<% @feeds.each do |feed| %>
+<%= render :partial => "feed", :locals => { :feed => feed } %>
+<% end %>

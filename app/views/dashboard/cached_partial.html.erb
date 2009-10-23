@@ -1,3 +1,5 @@
-<% cache do %>
-<%= render :partial => 'feeds' %>
+<% @feeds.each do |feed| %>
+<% cache(:key => "feed_#{feed.key}") do %>
+<%= render :partial => "feed", :locals => { :feed => feed } %>
+<% end %>
 <% end %>

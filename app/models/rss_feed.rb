@@ -1,3 +1,5 @@
+require 'digest/sha1'
+
 class RSSFeed < ActiveRecord::Base
 	validates_uniqueness_of :url
 
@@ -12,6 +14,10 @@ class RSSFeed < ActiveRecord::Base
 		end.slice(0, 5)
 	rescue Unavailable
 		[]
+	end
+
+	def key
+		Digest::SHA1.hexdigest(url).slice(0, 6)
 	end
 
 	def feed
