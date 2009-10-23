@@ -1,5 +1,5 @@
 <% @feeds.each do |feed| %>
-<% cache(:key => "feed_#{feed.key}") do %>
+<% cache(:key => "feed_#{feed.key}", :expires_in => 15.minutes) do %>
 <%= render :partial => "feed", :locals => { :feed => feed } %>
 <% end %>
 <% end %>
