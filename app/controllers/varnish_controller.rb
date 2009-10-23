@@ -13,9 +13,4 @@ class VarnishController < ApplicationController
 		headers['Cache-Control'] = 'public; max-age=300'
 		render :text => "PI is #{Slow.calculate_pi} after 10 million iterations"
 	end
-
-	def slow_unknown
-		sleep 0.4
-		render :text => "Why is this so slow?"
-	end
 end
