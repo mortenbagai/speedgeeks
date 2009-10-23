@@ -15,7 +15,7 @@ class DemoController < ApplicationController
 	end
 
 	def slow_unknown
-		sleep 3
+		sleep 0.4
 		render :text => "Why is this so slow?"
 	end
 end
