@@ -12,8 +12,4 @@ class Slow
 		end
 		pi
 	end
-
-	def self.calculate_tag_cloud
-		raise RuntimeError, "Implement Me!"
-	end
 end
