@@ -9,7 +9,7 @@ class RSSFeed < ActiveRecord::Base
 				:title => item.at("title").text.strip,
 				:link => item.at("link").text.strip
 			}
-		end
+		end.slice(0, 5)
 	rescue Unavailable
 		[]
 	end
