@@ -16,7 +16,7 @@ class Slow
 	JELLY_FISH = "#{RAILS_ROOT}/public/jelly_fish.png"
 
 	def self.rotate_and_resize(file = nil, opts={})
-		opts[:resize_to] ||= [300, 300]
+		opts[:resize_to] ||= [800, 600]
 		opts[:rotate] ||= 45
 
 		file ||= JELLY_FISH
@@ -24,9 +24,11 @@ class Slow
 		x, y = opts[:resize_to]
 		degrees = opts[:rotate]
 
-		img = Magick::Image.read(file).first
-		newimg = img.rotate(degrees).resize(x, y)
-		newimg.format = 'png'
-		newimg.to_blob
+		new_file = "#{RAILS_ROOT}/tmp/jelly_fish_#{x}x#{y}_r#{degrees}.png"
+
+		system("convert #{file} -rotate #{degrees} -resize #{x}x#{y} #{new_file}")
+		data = File.read(new_file)
+		File.delete(new_file) rescue nil
+		data
 	end
 end
