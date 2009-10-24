@@ -26,5 +26,7 @@ class Slow
 
 		img = Magick::Image.read(file).first
 		newimg = img.resize(x, y).rotate(degrees)
+		newimg.format = 'png'
+		newimg.to_blob
 	end
 end
