@@ -20,7 +20,7 @@ class Slow
 	end
 
 	def self.rotate_and_resize(file = nil, opts={})
-		opts[:resize_to] ||= [800, 600]
+		opts[:resize_to] ||= [640, 480]
 		opts[:rotate] ||= 45
 
 		file ||= JELLY_FISH
