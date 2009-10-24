@@ -12,4 +12,19 @@ class Slow
 		end
 		pi
 	end
+
+	JELLY_FISH = "#{RAILS_ROOT}/public/jelly_fish.png"
+
+	def self.rotate_and_resize(file = nil, opts={})
+		opts[:resize_to] ||= [800, 600]
+		opts[:rotate] ||= 45
+
+		file ||= JELLY_FISH
+
+		x, y = opts[:resize_to]
+		degrees = opts[:rotate]
+
+		img = Magick::Image.read(file).first
+		newimg = img.resize(x, y).rotate(degrees)
+	end
 end

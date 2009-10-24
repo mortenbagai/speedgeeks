@@ -42,3 +42,4 @@ end
 
 require 'nokogiri'
 require 'rest_client'
+require 'RMagick'
