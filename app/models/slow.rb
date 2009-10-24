@@ -15,6 +15,10 @@ class Slow
 
 	JELLY_FISH = "#{RAILS_ROOT}/public/jelly_fish.png"
 
+	def self.logger
+		Rails.logger
+	end
+
 	def self.rotate_and_resize(file = nil, opts={})
 		opts[:resize_to] ||= [800, 600]
 		opts[:rotate] ||= 45
