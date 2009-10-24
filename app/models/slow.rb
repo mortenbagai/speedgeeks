@@ -28,13 +28,8 @@ class Slow
 		x, y = opts[:resize_to]
 		degrees = opts[:rotate]
 
-		new_file = "#{RAILS_ROOT}/tmp/jelly_fish_#{x}x#{y}_r#{degrees}.png"
-		cmd = "convert #{file} -rotate #{degrees} -resize #{x}x#{y} #{new_file}"
+		cmd = "convert #{file} -rotate #{degrees} -resize #{x}x#{y} png:-"
 		logger.info "running #{cmd}"
-		result = system(cmd)
-		logger.info "command result #{result}"
-		data = File.read(new_file)
-		File.delete(new_file) rescue nil
-		data
+		data = `#{cmd}`
 	end
 end
