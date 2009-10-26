@@ -5,6 +5,6 @@ class DynosController < ApplicationController
 
 	def slow
 		sleep 0.3
-		render :text => "Why is this so slow?"
+		render :text => "<h1>Hello, I'm predictably slow.</h1>"
 	end
 end
