@@ -1,7 +1,7 @@
 <h2>Rendered on <%= Time.now %></h2>
 
 <% @feeds.each do |feed| %>
-<% cache(:key => "feed_#{feed.key}", :expires_in => 15.minutes) do %>
+<% cache(:key => "feed_#{feed.key}", :expires_in => 1.day) do %>
 <%= render :partial => "feed", :locals => { :feed => feed } %>
 <% end %>
 <% end %>
