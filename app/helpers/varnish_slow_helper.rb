@@ -1,0 +1,2 @@
+module VarnishSlowHelper
+end
