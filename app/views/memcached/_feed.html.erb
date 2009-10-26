@@ -1,7 +1,0 @@
-<h1>RSS: <%= feed.url %></h1>
-
-<ul>
-	<% feed.items.each do |item| %>
-	<li><a href="<%= item[:link] %>"><%= item[:title] %></a></li>
-	<% end %>
-</ul>
