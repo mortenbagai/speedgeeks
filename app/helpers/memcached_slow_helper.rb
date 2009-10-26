@@ -1,0 +1,2 @@
+module MemcachedSlowHelper
+end
